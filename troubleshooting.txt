@@ -1,0 +1,54 @@
+[ Linux troubleshooting ]
+[ ===================== ]
+
+networking, processes, io\mem\cpu, filesystem, logs
+
+[ networking ]
+--------------
+ifconfig	(mtu, 	broadcast)
+ping	(ttl, time)
+traceroute
+netstat	(-r, -a | grep -i listen)
+route (add\del)    iptables -L  selinux
+nslookup
+arp (-a\-e)
+tcpdump (-i eth0, -n dst host ynet.co.il)
+
+doc -> http://www.tecmint.com/linux-network-configuration-and-troubleshooting-commands/
+
+[ proc ]
+--------
+ps
+pstree -a
+top
+htop
+strace
+lsof  (cat > /tmp/aaa,  nc -l 9999; lsof -i :9999)
+threads : top -H -p `pidof sshd`
+
+[ io, mem, cpu ]
+----------------
+iostat -d 3 100
+dd if=/dev/zero of=./test bs=1
+iotop
+vmstat
+sar \-b\-r\-S
+
+
+[ filesystems ]
+---------------
+df
+mount
+inode \ ln
+cksum
+fsck
+
+[ logs ]
+--------
+/var/log
+grep -R error .
+dmesg
+
+http://www.commandlinefu.com/
+
+
